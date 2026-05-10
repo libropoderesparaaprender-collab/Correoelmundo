@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="notranslate">
 <head>
     <meta charset="UTF-8">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>P.P.A. - Dashboard de Entrevista</title>
     <style>
@@ -23,7 +24,6 @@
             padding: 0;
         }
 
-        /* Decoración Lateral */
         .sidebar-accent {
             position: fixed;
             left: 0;
@@ -54,7 +54,7 @@
 
         section {
             background: var(--white);
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 15px;
             margin-bottom: 2rem;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
@@ -63,19 +63,16 @@
 
         h2 {
             color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             margin-top: 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
 
-        /* Sección Especial IA */
         .ia-card {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 2rem;
-            border-radius: 15px;
             border: none;
         }
 
@@ -87,9 +84,6 @@
             color: var(--accent);
         }
 
-        .ia-card p { opacity: 0.95; font-size: 1.1rem; }
-
-        /* Cita de Séneca */
         .seneca-box {
             border-left: 5px solid var(--secondary);
             background: #f1f5f9;
@@ -99,12 +93,10 @@
             border-radius: 0 10px 10px 0;
         }
 
-        /* Los 6 Poderes */
         .powers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 15px;
-            margin-top: 1rem;
         }
 
         .power-card {
@@ -116,21 +108,25 @@
         }
 
         .power-card:hover { border-color: var(--secondary); background: #f0fdfa; }
-
         .power-card strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; }
 
-        /* Agradecimientos */
-        .gratitude-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+        /* Estilos para la Tetralogía */
+        .tetra-box {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary);
         }
+        .tetra-box h3 { margin-top: 0; color: var(--primary); font-size: 1.2rem; }
+        .tetra-effects { color: #475569; font-size: 0.95rem; font-style: italic; }
 
         .gratitude-item {
-            padding: 10px 15px;
+            padding: 12px 15px;
             background: #f8fafc;
             border-radius: 8px;
-            border-left: 3px solid var(--primary);
+            border-left: 4px solid var(--primary);
+            margin-bottom: 10px;
         }
 
         .values-footer {
@@ -144,14 +140,15 @@
         .badge {
             background: var(--primary);
             color: white;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             font-weight: bold;
             font-size: 0.85rem;
             letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        footer { text-align: center; color: #94a3b8; margin-top: 2rem; font-size: 0.8rem; }
+        footer { text-align: center; color: #94a3b8; margin-top: 2rem; font-size: 0.8rem; padding-bottom: 2rem;}
 
         @media (max-width: 600px) {
             h1 { font-size: 1.6rem; }
@@ -165,7 +162,7 @@
 
 <header>
     <h1>Poderes Para Aprender (P.P.A.)</h1>
-    <p class="subtitle"> Gregorio Gómez Pérez</p>
+    <p class="subtitle">Gregorio Gómez Pérez • Ingeniero y Aprendedor</p>
 </header>
 
 <div class="wrapper">
@@ -175,43 +172,62 @@
         <p>
             Los gimnasios físicos surgieron con la Revolución Industrial para evitar que el cuerpo se atrofiara cuando las máquinas asumieron el esfuerzo.
             <strong>Hoy, la IA es la máquina que "piensa".</strong> 
-            Los P.P.A. son el <b>Gimnasio Cerebral</b> que el <span class="aprendedor">aprendedor(alumno constante)</span> necesita para mantenerse lúcido, crítico y motivado en esta nueva era,un centro educativo  es un gimnasio mental,"el Mundo como gran aula también lo es".
+            Los P.P.A. son el <b>Gimnasio Cerebral</b> que el <span class="aprendedor">aprendedor (alumno constante)</span> necesita para mantenerse lúcido, crítico y motivado. Un centro educativo es un gimnasio mental y el mundo, como gran aula, también lo es.
         </p>
     </section>
 
     <section>
-        <h2>Filosofía y Justicia Social--- Dos decicatorias que imprimo en mi ibro...</h2>
+        <h2>Filosofía y Justicia Social</h2>
+        <p>Dos dedicatorias que imprimo en mi libro:</p>
         <div class="seneca-box">
-           1- P.P.A. - Te dará Suerte, en un mundo justo : "La suerte es lo que sucede cuando la preparación (este libro) se encuentra con la oportunidad (Séneca). En un mundo justo, a más preparación, más suerte; frente al 'enchufe', la excelencia es nuestra mayor rebeldía."
+            <strong>1. P.P.A. te dará Suerte:</strong> "La suerte es lo que sucede cuando la preparación (este libro) se encuentra con la oportunidad (Séneca). En un mundo justo, a más preparación, más suerte; frente al 'enchufe', la excelencia es nuestra mayor rebeldía."
         </div>
-        <p>2- P.P.A. - Busca la eficiencia en el aprendizaje. Todos somos alumnos, todos somos <span class="aprendedor">aprendedores</span> (Alumnos constantes).</p>
+        <div class="seneca-box">
+            <strong>2. Alumno Constante:</strong> P.P.A. busca la eficiencia en el aprendizaje. Todos somos alumnos, todos somos <span class="aprendedor">aprendedores</span>.
+        </div>
     </section>
 
     <section>
-        <h2>Los 6 Poderes (Consejos de Padres)</h2>
+        <h2>Los 6 Poderes (Libro I)</h2>
         <div class="powers-grid">
             <div class="power-card"><strong>Efecto Concierto:</strong> Estudia antes de clase. Conoce la melodía para disfrutar la lección.</div>
-            <div class="power-card"><strong>Efecto Cine:</strong> Silencio y respeto absoluto. Bi.S.A.</div>
-            <div class="power-card"><strong>Efecto Periodista:</strong> Actitud activa. Ve al aula(Mundo) a "cazar" la noticia del día.</div>
+            <div class="power-card"><strong>Efecto Cine:</strong> Silencio y respeto absoluto (Bi.S.A.).</div>
+            <div class="power-card"><strong>Efecto Periodista:</strong> Actitud activa. Ve al aula y al mundo a "cazar" la noticia del día.</div>
             <div class="power-card"><strong>Efecto Tiempo:</strong> El tiempo es irrecuperable. Gestionarlo bien es puro ingenio.</div>
-            <div class="power-card"><strong>Efecto Tonto:</strong>Definición de "Tonto" Dejar pasar las horas y no aprender nada.</div>
-            <div class="power-card"><strong>Efecto Desayuno:</strong> Alguién debierá informar de su importancia....</div>
+            <div class="power-card"><strong>Efecto Tonto:</strong> No es el que pregunta, sino el que deja pasar las horas sin aprender nada.</div>
+            <div class="power-card"><strong>Efecto Desayuno:</strong> La base biológica; alguien debiera informar de su importancia vital.</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Hoja de Ruta: La Tetralogía</h2>
+        
+        <div class="tetra-box">
+            <h3>Libro 2: Poderes Para el Profesorado</h3>
+            <p class="tetra-effects">Efecto Vehemencia, Efecto Ovillo, Efecto Oratoria, Efecto Continente-Contenido.</p>
+        </div>
+
+        <div class="tetra-box">
+            <h3>Libro 3: Poderes Para el Centro Educativo</h3>
+            <p class="tetra-effects">Efecto Gracias, Efecto Premio, Efecto Secundaria, Efecto Equipo, Efecto Habas.</p>
+        </div>
+
+        <div class="tetra-box">
+            <h3>Libro 4: Poderes Para la Sociedad</h3>
+            <p class="tetra-effects">Efecto Donuts, Efecto Pasado, Efecto Juventud Acumulada, Efecto Sociedad, Efecto Empresa.</p>
         </div>
     </section>
 
     <section>
         <h2>Gratitud y Raíces</h2>
-        <div class="gratitude-list">
-            <div class="gratitude-item"><strong>Gregorio y Leonor:</strong> Mis padres. El libro son sus consejos.</div>
-            <div class="gratitude-item"><strong>IES Diego Marín Aguilera:</strong> Mi centro actual. Es un centro que se respira "trabajo" la  sinergia FP-Secundaria y el creo que el "espíritu" de el gran "Ingeniero" Diego Marín Aguilera nos da fuerza.</div>
-            <div class="gratitude-item"><strong>IES La Bureba y Félix R. Fuente:</strong> Donde intente aprender a ser profesor y <span class="aprendedor">aprendedor</span>.</div>
-            <div class="gratitude-item"><strong>Colegio de Ingenieros:</strong> Institución que apoya y aporta orden a la  profesión, valores que  aprendí cuando estuve como Secretrario Técnico .</div>
-        </div>
+        <div class="gratitude-item"><strong>Gregorio y Leonor:</strong> Mis padres. El libro son sus consejos.</div>
+        <div class="gratitude-item"><strong>IES Diego Marín Aguilera:</strong> Mi centro actual, donde se respira trabajo y la sinergia FP-Secundaria bajo el espíritu del gran ingeniero.</div>
+        <div class="gratitude-item"><strong>IES La Bureba y Félix R. Fuente:</strong> Donde intenté aprender a ser profesor y aprendedor.</div>
+        <div class="gratitude-item"><strong>Colegio de Ingenieros:</strong> Institución que aporta el orden y los valores que aprendí como Secretario Técnico.</div>
     </section>
 
     <div class="values-footer">
-                <span class="badge">D.I.E.G.O.</span>
-
+        <span class="badge">D.I.E.G.O.</span>
         <span class="badge">DISCIPLINA</span>
         <span class="badge">INGENIO</span>
         <span class="badge">ESFUERZO</span>
@@ -219,7 +235,7 @@
         <span class="badge">ORDEN</span>
     </div>
 
-    <footer>Primera tetralogía.......</footer>
+    <footer>Poderes Para Aprender © 2026 - Una tetralogía para el cambio educativo.</footer>
 </div>
 
 </body>
