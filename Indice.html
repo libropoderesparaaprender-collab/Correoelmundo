@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poderes Para Aprender - Dashboard de Entrevista</title>
+    <title>P.P.A. - Dashboard de Entrevista</title>
     <style>
         :root {
-            --primary: #1a5276;
-            --secondary: #117a65;
-            --accent: #76d7c4;
-            --bg: #f0f4f4;
-            --text: #2c3e50;
+            --primary: #1a5276; /* Azul Ingeniero */
+            --secondary: #117a65; /* Verde P.P.A. */
+            --accent: #f1c40f; /* Dorado Aprendedor */
+            --bg: #f8fafc;
+            --text: #1e293b;
             --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--bg);
@@ -24,274 +23,202 @@
             padding: 0;
         }
 
-        /* Barra de progreso visual en el lateral */
-        .sidebar-decor {
+        /* Decoración Lateral */
+        .sidebar-accent {
             position: fixed;
             left: 0;
             top: 0;
             bottom: 0;
-            width: 12px;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-            z-index: 1000;
+            width: 10px;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            z-index: 100;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #154360 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, #0f344a 100%);
             color: var(--white);
-            padding: 4rem 2rem;
+            padding: 3rem 1rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
         }
 
-        h1 { margin: 0; font-size: 2.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 800; }
-        .subtitle { font-size: 1.3rem; font-weight: 300; opacity: 0.9; margin-top: 15px; letter-spacing: 1px; }
+        h1 { margin: 0; font-size: 2.2rem; letter-spacing: 1px; text-transform: uppercase; }
+        .subtitle { font-size: 1.1rem; font-weight: 300; opacity: 0.9; margin-top: 10px; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 30px 50px 30px;
+        .wrapper {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px 60px 20px;
         }
 
         section {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary);
         }
-
-        section:hover { transform: translateY(-5px); }
 
         h2 {
             color: var(--primary);
-            border-left: 6px solid var(--secondary);
-            padding-left: 15px;
+            font-size: 1.5rem;
             margin-top: 0;
-            font-size: 1.8rem;
-            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        /* Estilo especial para la sección de IA y Gimnasio */
-        .ia-gym-card {
-            background: linear-gradient(135deg, #1a5276 0%, #117a65 100%);
+        /* Sección Especial IA */
+        .ia-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            border-radius: 15px;
+            border: none;
         }
 
-        .ia-gym-card h3 { color: var(--accent); font-size: 1.5rem; margin-top: 0; }
+        .ia-card h2 { color: var(--accent); border: none; }
 
         .aprendedor {
             text-decoration: underline;
             font-weight: bold;
-            color: #f1c40f; /* Color dorado para que resalte más */
+            color: var(--accent);
         }
 
-        /* Caja de Séneca y Justicia */
-        .quote-container {
-            background-color: #fdfefe;
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-right: 8px solid var(--secondary);
+        .ia-card p { opacity: 0.95; font-size: 1.1rem; }
+
+        /* Cita de Séneca */
+        .seneca-box {
+            border-left: 5px solid var(--secondary);
+            background: #f1f5f9;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
             font-style: italic;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+            border-radius: 0 10px 10px 0;
         }
 
-        /* Los 6 Poderes en Grid */
-        .grid-powers {
+        /* Los 6 Poderes */
+        .powers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 1rem;
         }
 
-        .power-item {
-            background: #f8f9f9;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #ebedef;
-            position: relative;
-        }
-
-        .power-item strong { 
-            color: var(--primary); 
-            display: block; 
-            font-size: 1.2rem; 
-            margin-bottom: 8px;
-            border-bottom: 2px solid var(--accent);
-            width: fit-content;
-        }
-
-        /* Tabla de Tetralogía */
-        .table-style {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .power-card {
+            background: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            padding: 1.2rem;
             border-radius: 10px;
-            overflow: hidden;
+            transition: all 0.3s ease;
         }
 
-        .table-style th { background: var(--primary); color: white; padding: 15px; text-align: left; }
-        .table-style td { padding: 15px; border-bottom: 1px solid #eee; background: #fff; }
+        .power-card:hover { border-color: var(--secondary); background: #f0fdfa; }
 
-        /* Sección de Gratitud */
-        .gratitude-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+        .power-card strong { color: var(--primary); display: block; margin-bottom: 5px; font-size: 1.1rem; }
+
+        /* Agradecimientos */
+        .gratitude-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .gratitude-item {
-            background: #f4f7f6;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary);
+            padding: 10px 15px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
         }
 
         .values-footer {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
-            margin-top: 4rem;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 3rem;
         }
 
-        .value-tag {
+        .badge {
             background: var(--primary);
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-weight: bold;
+            font-size: 0.85rem;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(26, 82, 118, 0.3);
         }
 
-        footer {
-            text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            color: #95a5a6;
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; color: #94a3b8; margin-top: 2rem; font-size: 0.8rem; }
 
-        @media (max-width: 768px) {
-            .gratitude-box { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            section { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-<div class="sidebar-decor"></div>
+<div class="sidebar-accent"></div>
 
 <header>
     <h1>Poderes Para Aprender (P.P.A.)</h1>
-    <div class="subtitle">Gimnasia del Pensamiento Moderno • Hoja de Ruta para la Entrevista</div>
+    <p class="subtitle">Guion para Entrevista • Por Gregorio Gómez Pérez</p>
 </header>
 
-<div class="container">
+<div class="wrapper">
 
-    <section class="ia-gym-card">
-        <h3>La Revolución de la Inteligencia Artificial</h3>
-        <p>Históricamente, los gimnasios físicos nacieron con la Revolución Industrial: cuando las máquinas sustituyeron el esfuerzo del cuerpo, el hombre tuvo que entrenar para no atrofiarse.</p>
-        <p>Hoy vivimos la <strong>Revolución de la IA</strong>. Las máquinas empiezan a "pensar" por nosotros. Los P.P.A. son el <strong>Gimnasio Cerebral</strong> necesario para que el <span class="aprendedor">aprendedor</span> mantenga su agilidad, lucidez y espíritu crítico, independientemente de la ayuda tecnológica.</p>
+    <section class="ia-card">
+        <h2>Gimnasia Cerebral e IA</h2>
+        <p>
+            Los gimnasios físicos surgieron con la Revolución Industrial para evitar que el cuerpo se atrofiara cuando las máquinas asumieron el esfuerzo.
+            <strong>Hoy, la IA es la máquina que "piensa".</strong> 
+            Los P.P.A. son el <b>Gimnasio Cerebral</b> que el <span class="aprendedor">aprendedor</span> necesita para mantenerse lúcido, crítico y motivado en esta nueva era.
+        </p>
     </section>
 
     <section>
-        <h2>Filosofía: Eficiencia y Meritocracia</h2>
-        <div class="quote-container">
-            <p>"La suerte es la conjunción de la <strong>preparación</strong> (lo que te proporciona este libro) y la <strong>oportunidad</strong> (Séneca). En un mundo justo, a más preparación, más suerte. En un mundo de 'enchufes', la excelencia del <span class="aprendedor">aprendedor</span> es nuestra mayor defensa e instrumento de justicia social."</p>
+        <h2>Filosofía y Justicia Social</h2>
+        <div class="seneca-box">
+            "La suerte es la conjunción de la preparación (este libro) y la oportunidad (Séneca). En un mundo justo, a más preparación, más suerte; frente al 'enchufe', la excelencia es nuestra mayor rebeldía."
         </div>
-        <p>El libro busca la eficiencia en el aprendizaje dentro de ese ecosistema llamado aula, donde todos somos alumnos en constante evolución.</p>
+        <p>Buscamos la eficiencia en el aprendizaje. Todos somos alumnos, todos somos un <span class="aprendedor">aprendedor</span> constante.</p>
     </section>
 
     <section>
-        <h2>Los 6 Poderes: La Sabiduría de los Padres</h2>
-        <p>Estructuramos técnicamente los consejos de toda la vida para motivar al <span class="aprendedor">aprendedor</span>:</p>
-        <div class="grid-powers">
-            <div class="power-item">
-                <strong>Efecto Concierto</strong>
-                Estudiar antes de clase. Conocer la melodía para disfrutar la lección como una experiencia única.
-            </div>
-            <div class="power-item">
-                <strong>Efecto Cine</strong>
-                Respeto y silencio. Crear el clima perfecto para que la absorción de datos sea total.
-            </div>
-            <div class="power-item">
-                <strong>Efecto Periodista</strong>
-                Actitud activa. El <span class="aprendedor">aprendedor</span> sale a "cazar" la noticia importante en cada clase.
-            </div>
-            <div class="power-item">
-                <strong>Efecto Tiempo</strong>
-                Conciencia de lo irrecuperable. Gestionar el tiempo es un acto de respeto hacia uno mismo.
-            </div>
-            <div class="power-item">
-                <strong>Efecto Tonto</strong>
-                Humildad para preguntar. Es preferible parecer tonto un minuto que serlo siempre por no preguntar.
-            </div>
-            <div class="power-item">
-                <strong>Efecto Desayuno</strong>
-                La base biológica. Sin nutrientes y energía física, no hay potencia de pensamiento.
-            </div>
+        <h2>Los 6 Poderes (Consejos de Padres)</h2>
+        <div class="powers-grid">
+            <div class="power-card"><strong>Efecto Concierto:</strong> Estudia antes de clase. Conoce la melodía para disfrutar la lección.</div>
+            <div class="power-card"><strong>Efecto Cine:</strong> Silencio y respeto absoluto. Absorción máxima de conocimiento.</div>
+            <div class="power-card"><strong>Efecto Periodista:</strong> Actitud activa. Ve al aula a "cazar" la noticia del día.</div>
+            <div class="power-card"><strong>Efecto Tiempo:</strong> El tiempo es irrecuperable. Gestionarlo bien es puro ingenio.</div>
+            <div class="power-card"><strong>Efecto Tonto:</strong> Pregunta en clase. Mejor una duda hoy que una laguna mañana.</div>
+            <div class="power-card"><strong>Efecto Desayuno:</strong> Energía biológica. Sin nutrientes, el cerebro no rinde.</div>
         </div>
     </section>
 
     <section>
-        <h2>El Proyecto: Una Tetralogía Educativa</h2>
-        <table class="table-style">
-            <thead>
-                <tr>
-                    <th>Volumen</th>
-                    <th>Enfoque y Misión</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><strong>I. Poderes para Aprender</strong></td><td>La eficiencia del individuo (<span class="aprendedor">aprendedor</span>).</td></tr>
-                <tr><td><strong>II. Poderes para la Sociedad</strong></td><td>Impacto social y orígenes del saber.</td></tr>
-                <tr><td><strong>III. Poderes para los Orígenes</strong></td><td>Especializado para el docente y su labor.</td></tr>
-                <tr><td><strong>IV. Poderes para el Centro</strong></td><td>Sinergias, gestión y convivencia educativa.</td></tr>
-            </tbody>
-        </table>
-    </section>
-
-    <section>
-        <h2>Raíces, Ingeniería y Gratitud</h2>
-        <div class="gratitude-box">
-            <div class="gratitude-item">
-                <strong>Leonor y Gregorio:</strong> Mis padres. El libro es el eco de sus consejos y enseñanzas de vida.
-            </div>
-            <div class="gratitude-item">
-                <strong>IES Diego Marín Aguilera:</strong> Mi centro actual. Inspirado por la figura del ingeniero Diego Marín y la sinergia FP-Secundaria.
-            </div>
-            <div class="gratitude-item">
-                <strong>IES La Bureba y Félix R. Fuente:</strong> Lugares donde aprendí la esencia de ser profesor y <span class="aprendedor">aprendedor</span>.
-            </div>
-            <div class="gratitude-item">
-                <strong>Colegio de Ingenieros:</strong> Mi etapa como secretario técnico aportó la disciplina y el orden necesarios para este proyecto.
-            </div>
+        <h2>Gratitud y Raíces</h2>
+        <div class="gratitude-list">
+            <div class="gratitude-item"><strong>Leonor y Gregorio:</strong> Mis padres. El libro son sus consejos.</div>
+            <div class="gratitude-item"><strong>IES Diego Marín Aguilera:</strong> Mi centro actual. Inspiración en el gran ingeniero y sinergia FP-Secundaria.</div>
+            <div class="gratitude-item"><strong>IES La Bureba y Félix R. Fuente:</strong> Donde aprendí a ser profesor y <span class="aprendedor">aprendedor</span>.</div>
+            <div class="gratitude-item"><strong>Colegio de Ingenieros:</strong> Años de disciplina, ingenio y orden profesional.</div>
         </div>
     </section>
 
     <div class="values-footer">
-        <div class="value-tag">DISCIPLINA</div>
-        <div class="value-tag">INGENIO</div>
-        <div class="value-tag">ESFUERZO</div>
-        <div class="value-tag">GRATITUD</div>
-        <div class="value-tag">ORDEN</div>
+        <span class="badge">DISCIPLINA</span>
+        <span class="badge">INGENIO</span>
+        <span class="badge">ESFUERZO</span>
+        <span class="badge">GRATITUD</span>
+        <span class="badge">ORDEN</span>
     </div>
 
+    <footer>Documento optimizado para la entrevista del miércoles.</footer>
 </div>
-
-<footer>
-    Diseño optimizado para la entrevista del Diario - "Entrena tu mente, domina tu futuro"
-</footer>
 
 </body>
 </html>
